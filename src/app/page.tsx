@@ -1,65 +1,292 @@
-import Image from "next/image";
+import {
+  BackToTop,
+  Button,
+  Container,
+  ProgressBar,
+  SectionTitle,
+} from "@/components/ui";
+import { weddingConfig } from "@/config/wedding";
+import { messages } from "@/content/messages";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <>
+      <ProgressBar />
+      <main className="w-full min-h-screen">
+        {/* Hero Section - Envelope */}
+        <section
+          id="envelope"
+          className="w-full min-h-screen flex items-center justify-center pt-20"
+        >
+          <Container>
+            <div className="text-center space-y-8">
+              <div>
+                <h1 className="font-serif text-4xl font-semibold mb-4 text-text">
+                  {weddingConfig.brideName} & {weddingConfig.groomName}
+                </h1>
+                <p className="text-lg text-muted font-body mb-2">
+                  {messages.invitation.greeting}
+                </p>
+                <p className="text-base text-muted font-body">
+                  {messages.invitation.mainMessage}
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button size="lg" variant="primary">
+                  {messages.envelope.cta}
+                </Button>
+                <Button size="lg" variant="outline">
+                  Conheça Nossa História
+                </Button>
+              </div>
+            </div>
+          </Container>
+        </section>
+
+        {/* Timeline Section */}
+        <section
+          id="timeline"
+          className="w-full py-20 bg-surface"
+        >
+          <Container>
+            <SectionTitle level="h2">
+              {messages.timeline.title}
+            </SectionTitle>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+              <div className="space-y-4">
+                <h3 className="font-serif text-2xl font-medium text-text">
+                  Nossa História
+                </h3>
+                <p className="text-base text-muted font-body">
+                  Confira os momentos mais especiais que nos trouxeram até aqui.
+                </p>
+                <Button variant="primary">Ver Timeline</Button>
+              </div>
+              <div className="bg-background rounded-lg p-6 text-center">
+                <p className="text-sm text-muted">
+                  Timeline interativa com fotos e descrições
+                </p>
+              </div>
+            </div>
+          </Container>
+        </section>
+
+        {/* Gallery Section */}
+        <section
+          id="gallery"
+          className="w-full py-20"
+        >
+          <Container>
+            <SectionTitle level="h2">Galeria de Fotos</SectionTitle>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+              <div className="bg-surface rounded-lg p-6 text-center">
+                <p className="text-sm text-muted">
+                  Carrossel de fotos com swipe
+                </p>
+              </div>
+              <div className="space-y-4">
+                <h3 className="font-serif text-2xl font-medium text-text">
+                  Nossas Memórias
+                </h3>
+                <p className="text-base text-muted font-body">
+                  Deslize para visualizar momentos especiais do casal.
+                </p>
+                <Button variant="primary">Ver Galeria</Button>
+              </div>
+            </div>
+          </Container>
+        </section>
+
+        {/* Flipbook Section */}
+        <section
+          id="flipbook"
+          className="w-full py-20 bg-surface"
+        >
+          <Container>
+            <SectionTitle level="h2">Livro de Memórias</SectionTitle>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+              <div className="space-y-4">
+                <h3 className="font-serif text-2xl font-medium text-text">
+                  Uma Jornada Especial
+                </h3>
+                <p className="text-base text-muted font-body">
+                  Vire as páginas e descubra a história do nosso amor em um álbum
+                  interativo.
+                </p>
+                <Button variant="primary">Abrir Álbum</Button>
+              </div>
+              <div className="bg-background rounded-lg p-6 text-center">
+                <p className="text-sm text-muted">
+                  Livro interativo com efeito de virada de página
+                </p>
+              </div>
+            </div>
+          </Container>
+        </section>
+
+        {/* Event Info Section */}
+        <section
+          id="event-info"
+          className="w-full py-20"
+        >
+          <Container>
+            <SectionTitle level="h2">Informações do Evento</SectionTitle>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+              <div className="bg-surface rounded-lg p-6 space-y-4">
+                <h3 className="font-serif text-xl font-medium text-text">
+                  Cerimônia
+                </h3>
+                <p className="text-sm text-muted">
+                  <strong>Local:</strong> {weddingConfig.ceremonyLocation}
+                </p>
+                <p className="text-sm text-muted">
+                  <strong>Horário:</strong> {weddingConfig.ceremonyTime}
+                </p>
+                <Button variant="outline" size="sm">
+                  Como Chegar
+                </Button>
+              </div>
+
+              <div className="bg-surface rounded-lg p-6 space-y-4">
+                <h3 className="font-serif text-xl font-medium text-text">
+                  Recepção
+                </h3>
+                <p className="text-sm text-muted">
+                  <strong>Local:</strong> {weddingConfig.receptionLocation}
+                </p>
+                <p className="text-sm text-muted">
+                  <strong>Horário:</strong> {weddingConfig.receptionTime}
+                </p>
+                <Button variant="outline" size="sm">
+                  Como Chegar
+                </Button>
+              </div>
+            </div>
+          </Container>
+        </section>
+
+        {/* Countdown Section */}
+        <section
+          id="countdown"
+          className="w-full py-20 bg-surface"
+        >
+          <Container>
+            <SectionTitle level="h2">Contagem Regressiva</SectionTitle>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
+              {["Dias", "Horas", "Minutos", "Segundos"].map((unit) => (
+                <div
+                  key={unit}
+                  className="bg-background rounded-lg p-6 text-center"
+                >
+                  <div className="font-serif text-3xl font-semibold text-text mb-2">
+                    00
+                  </div>
+                  <p className="text-sm text-muted">{unit}</p>
+                </div>
+              ))}
+            </div>
+          </Container>
+        </section>
+
+        {/* Confirmation Section */}
+        <section
+          id="confirmation"
+          className="w-full py-20"
+        >
+          <Container>
+            <SectionTitle level="h2">Confirmação de Participação</SectionTitle>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+              <div className="space-y-4">
+                <h3 className="font-serif text-2xl font-medium text-text">
+                  Confirme sua Presença
+                </h3>
+                <p className="text-base text-muted font-body">
+                  Contribua para o buffet através de PIX e nos avise pelo WhatsApp.
+                </p>
+                <div className="space-y-2">
+                  <p className="text-sm font-semibold">
+                    Valor por Pessoa: R$ {weddingConfig.guestContribution}
+                  </p>
+                  <p className="text-xs text-muted">
+                    Data limite:{" "}
+                    {new Date(
+                      weddingConfig.contributionDeadline
+                    ).toLocaleDateString("pt-BR")}
+                  </p>
+                </div>
+                <Button variant="primary">Ver Chave PIX</Button>
+              </div>
+              <div className="bg-surface rounded-lg p-6 text-center">
+                <p className="text-sm text-muted mb-4">QR Code PIX</p>
+                <div className="bg-background rounded-lg p-8">
+                  <p className="text-xs text-muted">
+                    [QR Code será exibido aqui]
+                  </p>
+                </div>
+              </div>
+            </div>
+          </Container>
+        </section>
+
+        {/* Gift List Section */}
+        <section
+          id="gift-list"
+          className="w-full py-20 bg-surface"
+        >
+          <Container>
+            <SectionTitle level="h2">Lista de Presentes</SectionTitle>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+              {weddingConfig.giftListLinks.map((link) => (
+                <div
+                  key={link.name}
+                  className="bg-background rounded-lg p-6 text-center space-y-4"
+                >
+                  <h3 className="font-serif text-lg font-medium text-text">
+                    {link.name}
+                  </h3>
+                  <Button variant="primary" size="sm">
+                    Abrir Lista
+                  </Button>
+                </div>
+              ))}
+              <div className="bg-background rounded-lg p-6 text-center space-y-4">
+                <h3 className="font-serif text-lg font-medium text-text">
+                  Outras Opções
+                </h3>
+                <Button variant="primary" size="sm">
+                  Consulte os Noivos
+                </Button>
+              </div>
+            </div>
+          </Container>
+        </section>
+
+        {/* Footer Section */}
+        <section
+          id="footer"
+          className="w-full py-16 bg-surface border-t"
+        >
+          <Container>
+            <div className="text-center space-y-4">
+              <p className="font-serif text-xl text-text">
+                Estamos ansiosos para celebrar esse momento especial com você!
+              </p>
+              <p className="text-sm text-muted">
+                {weddingConfig.brideName} & {weddingConfig.groomName}
+              </p>
+            </div>
+          </Container>
+        </section>
       </main>
-    </div>
+      <BackToTop />
+    </>
   );
 }

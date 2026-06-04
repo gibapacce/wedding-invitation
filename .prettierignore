@@ -1,0 +1,12 @@
+# Ignore artifacts
+node_modules
+.next
+dist
+build
+.env
+.env.local
+.env.*.local
+
+# Ignore all files by default
+*.md
+public

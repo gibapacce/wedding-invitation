@@ -24,34 +24,34 @@ Criar a base técnica do projeto.
 
 ### Setup
 
-* [ ] Criar projeto Next.js 15
-* [ ] Configurar TypeScript
-* [ ] Configurar ESLint
-* [ ] Configurar Prettier
-* [ ] Configurar Tailwind CSS
+* [x] Criar projeto Next.js 15
+* [x] Configurar TypeScript
+* [x] Configurar ESLint
+* [x] Configurar Prettier
+* [x] Configurar Tailwind CSS
 
 ### Estrutura
 
-* [ ] Criar estrutura de pastas definida na arquitetura
-* [ ] Criar pasta docs
-* [ ] Criar pasta content
-* [ ] Criar pasta config
+* [x] Criar estrutura de pastas definida na arquitetura
+* [x] Criar pasta docs
+* [x] Criar pasta content
+* [x] Criar pasta config
 
 ### Design System
 
-* [ ] Configurar paleta de cores
-* [ ] Configurar fontes
-* [ ] Configurar tokens Tailwind
-* [ ] Configurar espaçamentos globais
-* [ ] Configurar tipografia
+* [x] Configurar paleta de cores
+* [x] Configurar fontes
+* [x] Configurar tokens Tailwind
+* [x] Configurar espaçamentos globais
+* [x] Configurar tipografia
 
 ### Configuração Central
 
-* [ ] Criar wedding.ts
-* [ ] Configurar dados do casal
-* [ ] Configurar endereço
-* [ ] Configurar links externos
-* [ ] Configurar chave PIX
+* [x] Criar wedding.ts
+* [x] Configurar dados do casal
+* [x] Configurar endereço
+* [x] Configurar links externos
+* [x] Configurar chave PIX
 
 ---
 
@@ -65,23 +65,23 @@ Criar estrutura principal da aplicação.
 
 ### Layout
 
-* [ ] Criar layout principal
-* [ ] Criar container responsivo
-* [ ] Criar sistema de seções
-* [ ] Criar barra de progresso
+* [x] Criar layout principal
+* [x] Criar container responsivo
+* [x] Criar sistema de seções
+* [x] Criar barra de progresso
 
 ### Navegação
 
-* [ ] Implementar scroll suave
-* [ ] Criar navegação por âncoras
-* [ ] Criar botão voltar ao topo
+* [x] Implementar scroll suave
+* [x] Criar navegação por âncoras
+* [x] Criar botão voltar ao topo
 
 ### Responsividade
 
-* [ ] Testar em 320px
-* [ ] Testar em 375px
-* [ ] Testar em 390px
-* [ ] Testar em 430px
+* [x] Testar em 320px
+* [x] Testar em 375px
+* [x] Testar em 390px
+* [x] Testar em 430px
 
 ---
 
