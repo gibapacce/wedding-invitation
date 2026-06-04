@@ -95,19 +95,19 @@ Criar a entrada da experiência.
 
 ### UI
 
-* [ ] Criar componente Envelope
-* [ ] Criar selo decorativo
-* [ ] Criar botão de abertura
+* [x] Criar componente Envelope
+* [x] Criar selo decorativo
+* [x] Criar botão de abertura
 
 ### Animação
 
-* [ ] Implementar animação de abertura
-* [ ] Implementar transição para convite
-* [ ] Implementar estado aberto
+* [x] Implementar animação de abertura
+* [x] Implementar transição para convite
+* [x] Implementar estado aberto
 
 ### Analytics
 
-* [ ] Registrar evento envelope_opened
+* [x] Registrar evento envelope_opened
 
 ---
 

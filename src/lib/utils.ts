@@ -39,6 +39,24 @@ export function calculateDaysUntil(targetDate: string): {
   return { days, hours, minutes, seconds };
 }
 
+export function registerAnalyticsEvent(
+  eventName: string,
+  payload?: Record<string, unknown>
+): void {
+  if (typeof window === "undefined") {
+    return;
+  }
+
+  const dataLayer = (window as any).dataLayer;
+
+  if (Array.isArray(dataLayer)) {
+    dataLayer.push({ event: eventName, ...payload });
+    return;
+  }
+
+  console.log("Analytics event:", eventName, payload ?? {});
+}
+
 export function generateWhatsAppLink(number: string, message: string): string {
   const encodedMessage = encodeURIComponent(message);
   return `https://wa.me/${number}?text=${encodedMessage}`;
