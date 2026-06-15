@@ -144,24 +144,24 @@ Contar a história do casal.
 
 ### Estrutura
 
-* [ ] Criar modelo TimelineEvent
-* [ ] Criar fonte de dados timeline.ts
+* [x] Criar modelo TimelineEvent
+* [x] Criar fonte de dados timeline.ts
 
 ### UI
 
-* [ ] Criar Timeline Section
-* [ ] Criar Timeline Card
-* [ ] Criar indicador visual de progresso
+* [x] Criar Timeline Section
+* [x] Criar Timeline Card
+* [x] Criar indicador visual de progresso
 
 ### Motion
 
-* [ ] Implementar Fade In
-* [ ] Implementar Slide Up
-* [ ] Implementar animações on-scroll
+* [x] Implementar Fade In
+* [x] Implementar Slide Up
+* [x] Implementar animações on-scroll
 
 ### Analytics
 
-* [ ] Registrar timeline_viewed
+* [x] Registrar timeline_viewed
 
 ---
 

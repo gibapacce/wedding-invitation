@@ -7,8 +7,10 @@ import {
 } from "@/components/ui";
 import { EnvelopeSection } from "@/components/sections/EnvelopeSection";
 import { InvitationSection } from "@/components/sections/InvitationSection";
+import { TimelineSection } from "@/components/sections/TimelineSection";
 import { weddingConfig } from "@/config/wedding";
 import { messages } from "@/content/messages";
+import { timelineEvents } from "@/content/timeline";
 
 export default function Home() {
   return (
@@ -28,33 +30,11 @@ export default function Home() {
         />
 
         {/* Timeline Section */}
-        <section
-          id="timeline"
-          className="w-full py-20 bg-surface"
-        >
-          <Container>
-            <SectionTitle level="h2">
-              {messages.timeline.title}
-            </SectionTitle>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
-              <div className="space-y-4">
-                <h3 className="font-serif text-2xl font-medium text-text">
-                  Nossa História
-                </h3>
-                <p className="text-base text-muted font-body">
-                  Confira os momentos mais especiais que nos trouxeram até aqui.
-                </p>
-                <Button variant="primary">Ver Timeline</Button>
-              </div>
-              <div className="bg-background rounded-lg p-6 text-center">
-                <p className="text-sm text-muted">
-                  Timeline interativa com fotos e descrições
-                </p>
-              </div>
-            </div>
-          </Container>
-        </section>
+        <TimelineSection
+          events={timelineEvents}
+          title={messages.timeline.title}
+          subtitle={messages.timeline.subtitle}
+        />
 
         {/* Gallery Section */}
         <section
