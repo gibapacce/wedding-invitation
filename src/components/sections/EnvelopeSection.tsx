@@ -127,7 +127,7 @@ export function EnvelopeSection({ onOpen }: EnvelopeSectionProps) {
                     </Button>
                   ) : (
                     <a
-                      href="#timeline"
+                      href="#invitation"
                       className="inline-flex items-center justify-center rounded-lg border border-primary bg-primary px-8 py-4 text-lg font-medium text-white transition-colors duration-200 hover:opacity-90"
                     >
                       Conheça Nossa História

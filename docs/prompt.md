@@ -11,7 +11,7 @@ Siga obrigatoriamente:
 
 Objetivo:
 
-Executar apenas o EPIC 03 — Envelope
+Executar apenas o EPIC 04 — Convite Principal
 
 Regras:
 

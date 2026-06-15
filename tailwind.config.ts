@@ -59,6 +59,12 @@ const config: Config = {
         lg: "1024px",
         xl: "1280px",
       },
+      borderRadius: {
+        small: "12px",
+        medium: "20px",
+        large: "32px",
+        full: "9999px",
+      },
     },
   },
   plugins: [],

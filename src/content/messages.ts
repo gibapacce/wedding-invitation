@@ -6,6 +6,8 @@ export const messages = {
   invitation: {
     greeting: "Você está convidado para nosso casamento!",
     mainMessage: "Temos a honra de convidá-lo para celebrar conosco um dia especial.",
+    dateLabel: "Save the Date",
+    cta: "Conheça Nossa História",
   },
   timeline: {
     title: "Nossa História",

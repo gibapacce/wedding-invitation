@@ -6,6 +6,7 @@ import {
   SectionTitle,
 } from "@/components/ui";
 import { EnvelopeSection } from "@/components/sections/EnvelopeSection";
+import { InvitationSection } from "@/components/sections/InvitationSection";
 import { weddingConfig } from "@/config/wedding";
 import { messages } from "@/content/messages";
 
@@ -15,6 +16,16 @@ export default function Home() {
       <ProgressBar />
       <main className="w-full min-h-screen">
         <EnvelopeSection />
+
+        <InvitationSection
+          brideName={weddingConfig.brideName}
+          groomName={weddingConfig.groomName}
+          weddingDate={weddingConfig.weddingDate}
+          message={messages.invitation.mainMessage}
+          heroImage={weddingConfig.heroImage || undefined}
+          dateLabel={messages.invitation.dateLabel}
+          ctaLabel={messages.invitation.cta}
+        />
 
         {/* Timeline Section */}
         <section

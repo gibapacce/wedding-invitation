@@ -47,7 +47,7 @@ export function registerAnalyticsEvent(
     return;
   }
 
-  const dataLayer = (window as any).dataLayer;
+  const dataLayer = (window as Window & { dataLayer?: unknown[] }).dataLayer;
 
   if (Array.isArray(dataLayer)) {
     dataLayer.push({ event: eventName, ...payload });

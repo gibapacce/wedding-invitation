@@ -121,16 +121,16 @@ Apresentar os noivos e o evento.
 
 ### Conteúdo
 
-* [ ] Criar Hero Section
-* [ ] Exibir nome dos noivos
-* [ ] Exibir data do casamento
-* [ ] Exibir mensagem principal
+* [x] Criar Hero Section
+* [x] Exibir nome dos noivos
+* [x] Exibir data do casamento
+* [x] Exibir mensagem principal
 
 ### Visual
 
-* [ ] Adicionar imagem principal
-* [ ] Adicionar animações de entrada
-* [ ] Implementar CTA para próxima seção
+* [x] Adicionar imagem principal
+* [x] Adicionar animações de entrada
+* [x] Implementar CTA para próxima seção
 
 ---
 
