@@ -1,11 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap");
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root {
-  /* Color System */
+@theme {
   --color-background: #faf7f4;
   --color-surface: #f4eee8;
   --color-primary: #d8c3b5;
@@ -14,10 +11,19 @@
   --color-text: #4e443d;
   --color-muted: #7d736c;
 
-  /* Font Families */
   --font-serif: "Playfair Display", serif;
   --font-body: "Cormorant Garamond", serif;
   --font-sans: "Inter", sans-serif;
+
+  --radius-small: 12px;
+  --radius-medium: 20px;
+  --radius-large: 32px;
+
+  --breakpoint-xs: 320px;
+  --breakpoint-sm: 375px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
 }
 
 body {
@@ -28,11 +34,4 @@ body {
 
 html {
   scroll-behavior: smooth;
-}
-
-/* Smooth scrolling */
-@supports (scroll-behavior: smooth) {
-  html {
-    scroll-behavior: smooth;
-  }
 }
