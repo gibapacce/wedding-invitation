@@ -1,37 +1,20 @@
 "use client";
 
-import { motion } from "framer-motion";
+import Image from "next/image";
+import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
-import { Button } from "@/components/ui";
 import { weddingConfig } from "@/config/wedding";
 import { messages } from "@/content/messages";
-import { registerAnalyticsEvent } from "@/lib/utils";
+import { formatDate, registerAnalyticsEvent } from "@/lib/utils";
 
 interface EnvelopeSectionProps {
   onOpen?: () => void;
 }
 
-const flapVariants = {
-  closed: {
-    rotateX: 0,
-    y: 0,
-  },
-  open: {
-    rotateX: -150,
-    y: -42,
-  },
-};
-
-const contentVariants = {
-  hidden: {
-    opacity: 0,
-    y: 24,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-  },
-};
+const clipTopFlap = "polygon(0 0, 100% 0, 50% 72%)";
+const clipBottomFlap = "polygon(0 100%, 100% 100%, 50% 30%)";
+const clipLeftFlap = "polygon(0 0, 0 100%, 50% 50%)";
+const clipRightFlap = "polygon(100% 0, 100% 100%, 50% 50%)";
 
 export function EnvelopeSection({ onOpen }: EnvelopeSectionProps) {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,94 +32,155 @@ export function EnvelopeSection({ onOpen }: EnvelopeSectionProps) {
   return (
     <section
       id="envelope"
-      className="w-full min-h-screen flex items-center justify-center bg-background py-20"
+      className="w-full min-h-screen flex flex-col items-center justify-center bg-background px-4 py-20"
     >
-      <div className="w-full px-4">
-        <div className="mx-auto max-w-4xl text-center space-y-10">
-          <div className="space-y-3">
-            <p className="text-sm uppercase tracking-[0.35em] text-muted font-sans">
-              {messages.envelope.title}
-            </p>
-            <h1 className="font-serif text-5xl sm:text-6xl font-semibold text-text">
-              {weddingConfig.brideName} & {weddingConfig.groomName}
-            </h1>
-            <p className="mx-auto max-w-2xl text-base text-muted font-body leading-8">
-              {messages.invitation.greeting}
-            </p>
-          </div>
+      <div className="mx-auto w-full max-w-md text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="space-y-2"
+        >
+          <p className="text-sm uppercase tracking-[0.35em] text-muted font-sans">
+            {messages.envelope.title}
+          </p>
+          <h1 className="font-serif text-4xl font-semibold text-text sm:text-5xl">
+            {weddingConfig.brideName} & {weddingConfig.groomName}
+          </h1>
+        </motion.div>
 
-          <div className="relative mx-auto w-full max-w-2xl" style={{ perspective: 1400 }}>
+        <div
+          className="relative mx-auto mt-12 w-full"
+          style={{ perspective: 1400 }}
+        >
+          <div className="relative mx-auto aspect-[7/5] w-full drop-shadow-[0_18px_40px_rgba(78,68,61,0.18)]">
+            {/* Carta */}
             <motion.div
-              initial="closed"
-              animate={isOpen ? "open" : "closed"}
-              variants={flapVariants}
-              transition={{ type: "spring", stiffness: 160, damping: 20 }}
-              className="absolute inset-x-0 top-0 h-[44%] rounded-[2.5rem] bg-surface border border-secondary shadow-2xl shadow-[#a78b6d30] origin-top-center"
+              initial={false}
+              animate={
+                isOpen
+                  ? { y: "-62%", opacity: 1 }
+                  : { y: "0%", opacity: 1 }
+              }
+              transition={{
+                duration: 0.8,
+                ease: "easeInOut",
+                delay: isOpen ? 0.4 : 0,
+              }}
+              style={{ zIndex: isOpen ? 40 : 1 }}
+              className="absolute inset-x-[10%] top-[6%] rounded-small border border-secondary/50 bg-background px-5 py-6 shadow-[0_8px_24px_rgba(0,0,0,0.12)]"
             >
-              {!isOpen && (
-                <div className="absolute left-8 top-8 rounded-full border border-muted/40 bg-white/80 px-4 py-1 text-xs uppercase tracking-[0.35em] text-muted shadow-sm">
-                  selo
-                </div>
-              )}
-              <div className="absolute inset-x-10 bottom-8 rounded-3xl border border-secondary/70 bg-background p-4">
-                <div className="h-2 w-24 rounded-full bg-muted/20" />
-                <div className="mt-4 h-3 w-32 rounded-full bg-muted/15" />
+              <div className="space-y-3 text-center">
+                <p className="text-[11px] uppercase tracking-[0.3em] text-muted font-sans">
+                  {messages.invitation.dateLabel}
+                </p>
+                <p className="font-serif text-xl font-semibold text-text">
+                  {weddingConfig.brideName}
+                  <span className="mx-2 text-primary">&</span>
+                  {weddingConfig.groomName}
+                </p>
+                <p className="font-serif text-sm font-medium text-primary">
+                  {formatDate(weddingConfig.weddingDate)}
+                </p>
               </div>
             </motion.div>
 
-            <div className="relative pt-[42%]">
-              <div className="rounded-[2.25rem] border border-secondary bg-background p-8 shadow-[0_40px_90px_-40px_rgba(78,68,61,0.24)] min-h-[320px]">
-                <div className="space-y-8">
-                  <div className="rounded-[1.75rem] border border-dashed border-secondary/60 bg-surface p-8">
-                    <div className="space-y-4">
-                      <div className="h-10 w-2/5 rounded-full bg-muted/15" />
-                      <div className="h-4 w-full rounded-full bg-muted/10" />
-                      <div className="h-4 w-11/12 rounded-full bg-muted/10" />
-                      <div className="h-4 w-4/5 rounded-full bg-muted/10" />
-                    </div>
-                  </div>
+            {/* Corpo do envelope */}
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 rounded-medium bg-primary"
+            />
 
-                  <motion.div
-                    initial="hidden"
-                    animate={isOpen ? "visible" : "hidden"}
-                    variants={contentVariants}
-                    transition={{ duration: 0.45, ease: "easeOut" }}
-                    className="space-y-6 rounded-[1.75rem] border border-secondary bg-surface p-8"
-                  >
-                    <p className="text-sm uppercase tracking-[0.35em] text-muted font-sans">
-                      Convite Aberto
-                    </p>
-                    <h2 className="font-serif text-3xl font-semibold text-text">
-                      Um dia para celebrar o nosso amor
-                    </h2>
-                    <p className="text-base text-muted font-body leading-7">
-                      {messages.invitation.mainMessage}
-                    </p>
-                  </motion.div>
-                </div>
+            {/* Abas laterais */}
+            <div
+              aria-hidden="true"
+              style={{ clipPath: clipLeftFlap, zIndex: 20 }}
+              className="absolute inset-0 rounded-l-medium bg-accent"
+            />
+            <div
+              aria-hidden="true"
+              style={{ clipPath: clipRightFlap, zIndex: 20 }}
+              className="absolute inset-0 rounded-r-medium bg-accent"
+            />
 
-                <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:justify-center">
-                  {!isOpen ? (
-                    <Button
-                      onClick={handleOpen}
-                      size="lg"
-                      variant="primary"
-                      aria-label="Abrir convite"
-                    >
-                      {messages.envelope.cta}
-                    </Button>
-                  ) : (
-                    <a
-                      href="#invitation"
-                      className="inline-flex items-center justify-center rounded-lg border border-primary bg-primary px-8 py-4 text-lg font-medium text-white transition-colors duration-200 hover:opacity-90"
-                    >
-                      Conheça Nossa História
-                    </a>
-                  )}
-                </div>
-              </div>
-            </div>
+            {/* Aba inferior (bolso frontal) */}
+            <div
+              aria-hidden="true"
+              style={{ clipPath: clipBottomFlap, zIndex: 25 }}
+              className="absolute inset-0 rounded-b-medium bg-[#cbb39d]"
+            />
+
+            {/* Aba superior (abre) */}
+            <motion.div
+              aria-hidden="true"
+              initial={false}
+              animate={{ rotateX: isOpen ? -180 : 0 }}
+              transition={{ duration: 0.7, ease: "easeInOut" }}
+              style={{
+                clipPath: clipTopFlap,
+                transformOrigin: "top center",
+                transformStyle: "preserve-3d",
+                zIndex: isOpen ? 5 : 30,
+              }}
+              className="absolute inset-0 rounded-t-medium bg-[#d0b8a2]"
+            />
+
+            {/* Selo */}
+            <AnimatePresence>
+              {!isOpen && (
+                <motion.button
+                  type="button"
+                  onClick={handleOpen}
+                  aria-label={messages.envelope.cta}
+                  initial={{ opacity: 0, scale: 0.6 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.4 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  whileHover={{ scale: 1.06 }}
+                  whileTap={{ scale: 0.94 }}
+                  style={{ zIndex: 35 }}
+                  className="absolute left-1/2 top-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-background shadow-[0_8px_24px_rgba(0,0,0,0.12)] ring-1 ring-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                >
+                  <Image
+                    src="/images/selo_carta.png"
+                    alt="Selo do convite"
+                    width={80}
+                    height={80}
+                    priority
+                    className="h-16 w-16 object-contain"
+                  />
+                </motion.button>
+              )}
+            </AnimatePresence>
           </div>
+        </div>
+
+        <div className="mt-10 flex min-h-[64px] items-center justify-center">
+          <AnimatePresence mode="wait">
+            {!isOpen ? (
+              <motion.p
+                key="hint"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="text-sm text-muted font-body"
+              >
+                Toque no selo para abrir o convite
+              </motion.p>
+            ) : (
+              <motion.a
+                key="cta"
+                href="#invitation"
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: 0.9 }}
+                className="inline-flex items-center justify-center rounded-full bg-primary px-8 py-4 text-base font-medium text-text font-sans shadow-[0_4px_20px_rgba(0,0,0,0.06)] transition-transform duration-300 ease-out hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                {messages.invitation.cta}
+              </motion.a>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </section>

@@ -2,7 +2,7 @@ export const weddingConfig = {
   /* Noivos */
   brideName: "Deise",
   groomName: "Gilberto",
-  heroImage: "",
+  heroImage: "/images/medium-shot-married-couple-posing-together.jpg",
 
   /* Datas e Horários */
   weddingDate: "2027-10-23",
