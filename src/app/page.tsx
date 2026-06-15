@@ -5,6 +5,8 @@ import {
   ProgressBar,
   SectionTitle,
 } from "@/components/ui";
+import { EnvelopeSection } from "@/components/sections/EnvelopeSection";
+import { InvitationSection } from "@/components/sections/InvitationSection";
 import { weddingConfig } from "@/config/wedding";
 import { messages } from "@/content/messages";
 
@@ -13,36 +15,17 @@ export default function Home() {
     <>
       <ProgressBar />
       <main className="w-full min-h-screen">
-        {/* Hero Section - Envelope */}
-        <section
-          id="envelope"
-          className="w-full min-h-screen flex items-center justify-center pt-20"
-        >
-          <Container>
-            <div className="text-center space-y-8">
-              <div>
-                <h1 className="font-serif text-4xl font-semibold mb-4 text-text">
-                  {weddingConfig.brideName} & {weddingConfig.groomName}
-                </h1>
-                <p className="text-lg text-muted font-body mb-2">
-                  {messages.invitation.greeting}
-                </p>
-                <p className="text-base text-muted font-body">
-                  {messages.invitation.mainMessage}
-                </p>
-              </div>
+        <EnvelopeSection />
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" variant="primary">
-                  {messages.envelope.cta}
-                </Button>
-                <Button size="lg" variant="outline">
-                  Conheça Nossa História
-                </Button>
-              </div>
-            </div>
-          </Container>
-        </section>
+        <InvitationSection
+          brideName={weddingConfig.brideName}
+          groomName={weddingConfig.groomName}
+          weddingDate={weddingConfig.weddingDate}
+          message={messages.invitation.mainMessage}
+          heroImage={weddingConfig.heroImage || undefined}
+          dateLabel={messages.invitation.dateLabel}
+          ctaLabel={messages.invitation.cta}
+        />
 
         {/* Timeline Section */}
         <section

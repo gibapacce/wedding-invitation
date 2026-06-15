@@ -1,15 +1,16 @@
 export const weddingConfig = {
   /* Noivos */
-  brideName: "Maria",
-  groomName: "João",
+  brideName: "Deise",
+  groomName: "Gilberto",
+  heroImage: "",
 
   /* Datas e Horários */
-  weddingDate: "2026-06-20",
-  ceremonyTime: "18:00",
-  receptionTime: "19:30",
+  weddingDate: "2027-10-23",
+  ceremonyTime: "17:00",
+  receptionTime: "16:00",
 
   /* Localizações */
-  ceremonyLocation: "Igreja do Bom Jesus",
+  ceremonyLocation: "Estância Eventos",
   ceremonyAddress: "Rua das Flores, 123, São Paulo - SP",
   receptionLocation: "Salão de Festas Paraíso",
   receptionAddress: "Avenida Paulista, 456, São Paulo - SP",
@@ -17,10 +18,10 @@ export const weddingConfig = {
   /* Informações Financeiras */
   pixKey: "email@exemplo.com",
   guestContribution: 180,
-  contributionDeadline: "2026-06-10",
+  contributionDeadline: "2027-09-23",
 
   /* Contato */
-  whatsappNumber: "5511999999999",
+  whatsappNumber: "5551999999999",
   whatsappMessage:
     "Olá! Gostaria de confirmar minha participação no casamento.",
 

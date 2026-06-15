@@ -11,7 +11,7 @@ Siga obrigatoriamente:
 
 Objetivo:
 
-Executar apenas o EPIC 02 — Foundation.
+Executar apenas o EPIC 04 — Convite Principal
 
 Regras:
 
