@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Button } from "@/components/ui";
@@ -74,8 +75,14 @@ export function EnvelopeSection({ onOpen }: EnvelopeSectionProps) {
               className="absolute inset-x-0 top-0 h-[44%] rounded-[2.5rem] bg-surface border border-secondary shadow-2xl shadow-[#a78b6d30] origin-top-center"
             >
               {!isOpen && (
-                <div className="absolute left-8 top-8 rounded-full border border-muted/40 bg-white/80 px-4 py-1 text-xs uppercase tracking-[0.35em] text-muted shadow-sm">
-                  selo
+                <div className="absolute left-8 top-8 h-16 w-16 overflow-hidden rounded-full border border-muted/30 bg-white/80 shadow-sm">
+                  <Image
+                    src="/images/selo_carta.png"
+                    alt="Selo do convite"
+                    width={64}
+                    height={64}
+                    className="h-full w-full object-contain p-1"
+                  />
                 </div>
               )}
               <div className="absolute inset-x-10 bottom-8 rounded-3xl border border-secondary/70 bg-background p-4">
