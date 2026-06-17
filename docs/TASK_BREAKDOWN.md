@@ -28,7 +28,7 @@ Criar a base técnica do projeto.
 * [x] Configurar TypeScript
 * [x] Configurar ESLint
 * [x] Configurar Prettier
-* [x] Configurar Tailwind CSS
+* [x] Configurar Tailwind CSS V4
 
 ### Estrutura
 
@@ -175,29 +175,29 @@ Exibir fotografias do casal.
 
 ### Estrutura
 
-* [ ] Criar gallery.ts
-* [ ] Configurar imagens
+* [x] Criar gallery.ts
+* [x] Configurar imagens
 
 ### UI
 
-* [ ] Criar Gallery Section
-* [ ] Criar Swiper
-* [ ] Criar paginação
+* [x] Criar Gallery Section
+* [x] Criar Swiper
+* [x] Criar paginação
 
 ### Funcionalidades
 
-* [ ] Implementar swipe
-* [ ] Implementar zoom
-* [ ] Implementar lightbox
+* [x] Implementar swipe
+* [x] Implementar zoom
+* [x] Implementar lightbox
 
 ### Performance
 
-* [ ] Lazy loading
-* [ ] Otimização de imagens
+* [x] Lazy loading
+* [x] Otimização de imagens
 
 ### Analytics
 
-* [ ] Registrar gallery_viewed
+* [x] Registrar gallery_viewed
 
 ---
 

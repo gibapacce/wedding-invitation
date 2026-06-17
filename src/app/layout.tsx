@@ -1,15 +1,18 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import "swiper/css";
+import "swiper/css/pagination";
 
 export const metadata: Metadata = {
   title: "Convite Digital de Casamento",
   description:
     "Convite digital interativo para o casamento. Confira a data, local, informações e confirme sua participação.",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({

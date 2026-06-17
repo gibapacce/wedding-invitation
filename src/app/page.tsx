@@ -8,9 +8,11 @@ import {
 import { EnvelopeSection } from "@/components/sections/EnvelopeSection";
 import { InvitationSection } from "@/components/sections/InvitationSection";
 import { TimelineSection } from "@/components/sections/TimelineSection";
+import { GallerySection } from "@/components/sections/GallerySection";
 import { weddingConfig } from "@/config/wedding";
 import { messages } from "@/content/messages";
 import { timelineEvents } from "@/content/timeline";
+import { galleryImages } from "@/content/gallery";
 
 export default function Home() {
   return (
@@ -37,31 +39,11 @@ export default function Home() {
         />
 
         {/* Gallery Section */}
-        <section
-          id="gallery"
-          className="w-full py-20"
-        >
-          <Container>
-            <SectionTitle level="h2">Galeria de Fotos</SectionTitle>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
-              <div className="bg-surface rounded-lg p-6 text-center">
-                <p className="text-sm text-muted">
-                  Carrossel de fotos com swipe
-                </p>
-              </div>
-              <div className="space-y-4">
-                <h3 className="font-serif text-2xl font-medium text-text">
-                  Nossas Memórias
-                </h3>
-                <p className="text-base text-muted font-body">
-                  Deslize para visualizar momentos especiais do casal.
-                </p>
-                <Button variant="primary">Ver Galeria</Button>
-              </div>
-            </div>
-          </Container>
-        </section>
+        <GallerySection
+          images={galleryImages}
+          title={messages.gallery.title}
+          subtitle={messages.gallery.subtitle}
+        />
 
         {/* Flipbook Section */}
         <section
