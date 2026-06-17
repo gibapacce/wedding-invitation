@@ -21,7 +21,7 @@ Toda implementação deve seguir obrigatoriamente:
 - Não utilizar Redux
 - Utilizar Next.js 15 App Router
 - Utilizar TypeScript
-- Utilizar Tailwind CSS
+- Utilizar Tailwind CSS V4
 - Utilizar Server Components sempre que possível
 - Utilizar Client Components apenas quando necessário
 

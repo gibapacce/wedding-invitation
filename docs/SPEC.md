@@ -329,7 +329,7 @@ Meta: WCAG AA
 
 * Next.js 15
 * TypeScript
-* Tailwind CSS
+* Tailwind CSS V4
 * Framer Motion
 * GSAP
 * SwiperJS

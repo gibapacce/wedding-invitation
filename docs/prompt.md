@@ -11,7 +11,7 @@ Siga obrigatoriamente:
 
 Objetivo:
 
-Executar apenas o EPIC 04 — Convite Principal
+Executar apenas o EPIC 06 — Galeria
 
 Regras:
 
